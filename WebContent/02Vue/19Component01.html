@@ -18,7 +18,7 @@
         
         <!--
             <div>ㅋㅋㅋㅋㅋㅋㅋ</div>
-            root요소가 단일 요소만 가능하므로 사용불가.
+            root요소가 하나만 가능하므로 사용불가.
         -->
     </template>
     <script>
@@ -38,7 +38,7 @@
         Vue.component("comp2",{template:'#tmp01'});
         $(function(){
             Vue.config.devtools = true;
-            var vm1 = new Vue({
+            var vue = new Vue({
                 el : '#app',
                 data : {
                     title : '컴포넌트01',

@@ -55,6 +55,8 @@
                     },
                     /*
                     todolist배열에서 index에 해당하는 항목 1개를 삭제한다.
+                    형식]
+                        삭제할 목록.splice(삭제할 배열의 인덱스, 몇개를 삭제할지 갯수)
                     */
                     deleteTodo:function(index){
                         this.todolist.splice(index, 1);
@@ -75,6 +77,10 @@
     <div id="todolistapp">
         <div id="header" class="header">
             <h2>{{title}}</h2>
+            <!--
+                v-model.trim -> 여백을 없애줌.
+                v-on:keyup.enter -> 엔터키를 누르면 이벤트 실행
+            -->
             <input type="text" class="input" id="task" v-model.trim="todo" v-on:keyup.enter="addTodo" placeholder="입력후 엔터!">
             <span  @click="addTodo" class="addbutton">추 가</span>
         </div>

@@ -23,6 +23,10 @@
             });
             new Vue({
                 el : '#app2',
+                /*
+                지역 컴포넌트를 등록하지 않으면 오류발생됨. 콘솔에서 확인.
+                유효범위가 다르기 때문임
+                */
                 //components : {
                 //    'local_component' : local_comp,
                 //}
