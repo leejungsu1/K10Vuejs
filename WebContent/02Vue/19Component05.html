@@ -22,7 +22,7 @@
             */
             template : `
                         <div>
-                            하위컴포넌트 입니다.
+                            하위Your컴포넌트 입니다.
                             <button v-on:click="showLog()">보여주세요</button>
                         </div>
                         `,
@@ -33,7 +33,25 @@
                     eventBus.$emit('vEventBus', 100);
                 }
             },
-       });
+        });
+       Vue.component('my_component', {
+            /*
+            template를 정의할때 HTML태그의 경우는 줄을 바꿔야 하는 경우가
+            많으므로 +와 "로 연결하는 것보다는 `(backquote)로 사용하는것이
+            편리하다.
+            */
+            template : `
+                        <div>
+                            하위My컴포넌트 입니다.
+                            <button v-on:click="showLog()">보여주세요</button>
+                        </div>
+                        `,
+            created : function(){
+                   eventBus.$on('vEventBus', function(value){
+                       console.log('이벤트를 전달받음. 전달받은 값', value);
+                       });
+                    }
+        });
        $(function(){
            /*
            3. created 라이프사이클 훅으로 이벤트를 받는 로직을
@@ -41,11 +59,7 @@
            */
             var vue = new Vue({
                 el : '#app',
-                created : function(){
-                   eventBus.$on('vEventBus', function(value){
-                       console.log('이벤트를 전달받음. 전달받은 값', value);
-                   });
-                }
+                
             });
         });   
     </script>
@@ -54,6 +68,7 @@
 <body>
     <div id="app">
         <your_component></your_component>
+        <my_component></my_component>
     </div>
 </body>
 </html>
